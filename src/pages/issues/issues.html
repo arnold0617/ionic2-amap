@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-navbar color="secondary">
+    <ion-title>
+      Info
+    </ion-title>
+    <ion-buttons end>
+        <button ion-button icon-only (click)="addItem()" >
+          <ion-icon name="add-circle"></ion-icon>
+
+        </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <!--
+    <ion-item-sliding>
+      <ion-item>
+        Swipe me to the left
+      </ion-item>
+      <ion-item-options>
+        <button danger (click)='removeItem()'>
+          <icon trash></icon>
+          Delete
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
+  -->
+     <ion-item-sliding *ngFor="let item of items"> 
+      <ion-item (click)="viewItem(item)">
+        {{item.title}}
+      </ion-item>
+      <ion-item-options>
+        <button danger (click)="removeItem(item)">
+          Delete
+        </button>
+      </ion-item-options>
+     </ion-item-sliding>
+  </ion-list>
+
+</ion-content>
